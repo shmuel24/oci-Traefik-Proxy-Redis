@@ -1,0 +1,13 @@
+kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.4/docs/content/reference/dynamic-configuration/kubernetes-crd-definition-v1.yml
+kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.4/docs/content/reference/dynamic-configuration/kubernetes-crd-rbac.yml
+
+
+openssl req -x509 -nodes -newkey rsa:2048 \       
+  -keyout tls.key -out tls.crt -days 365 \
+  -subj "/CN=*.redis.local"
+
+  
+kubectl create secret generic redis-default-cert \              
+  --from-file=tls.crt=tls.crt \
+  --from-file=tls.key=tls.key \
+  -n traefik
