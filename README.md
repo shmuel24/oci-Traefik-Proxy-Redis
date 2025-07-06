@@ -39,7 +39,7 @@ Before you begin, ensure you have the following:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-org/Traefik_proxy_for_redis.git
+git clone https://github.com/shmuel24/oci-Traefik-Proxy-Redis.git
 cd Traefik_proxy_for_redis
 ```
 
